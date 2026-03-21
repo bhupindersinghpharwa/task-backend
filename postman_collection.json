@@ -1,0 +1,16 @@
+{
+  "info": {
+    "name": "Mini Project Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {"name": "Create Project", "request": {"method": "POST", "header": [{"key":"Content-Type","value":"application/json"}], "url": {"raw":"http://localhost:4000/projects","protocol":"http","host":["localhost"],"port":"4000","path":["projects"]}, "body": {"mode":"raw","raw":"{\n  \"name\": \"Alpha Project\",\n  \"description\": \"Test project\"\n}"}}},
+    {"name": "List Projects", "request": {"method": "GET", "url": {"raw":"http://localhost:4000/projects?page=1&limit=10","protocol":"http","host":["localhost"],"port":"4000","path":["projects"],"query":[{"key":"page","value":"1"},{"key":"limit","value":"10"}]}}},
+    {"name": "Get Project", "request": {"method": "GET", "url": {"raw":"http://localhost:4000/projects/{{projectId}}","protocol":"http","host":["localhost"],"port":"4000","path":["projects","{{projectId}}"]}}},
+    {"name": "Delete Project", "request": {"method": "DELETE", "url": {"raw":"http://localhost:4000/projects/{{projectId}}","protocol":"http","host":["localhost"],"port":"4000","path":["projects","{{projectId}}"]}}},
+    {"name": "Add Task", "request": {"method": "POST", "header": [{"key":"Content-Type","value":"application/json"}], "url": {"raw":"http://localhost:4000/projects/{{projectId}}/tasks","protocol":"http","host":["localhost"],"port":"4000","path":["projects","{{projectId}}","tasks"]}, "body": {"mode":"raw","raw":"{\n  \"title\": \"Setup server\",\n  \"description\": \"Initialize API\",\n  \"status\": \"todo\",\n  \"priority\": \"high\",\n  \"due_date\": \"2026-12-31\"\n}"}}},
+    {"name": "List Tasks", "request": {"method": "GET", "url": {"raw":"http://localhost:4000/projects/{{projectId}}/tasks?status=todo&sort=due_date","protocol":"http","host":["localhost"],"port":"4000","path":["projects","{{projectId}}","tasks"],"query":[{"key":"status","value":"todo"},{"key":"sort","value":"due_date"}]}}},
+    {"name": "Update Task", "request": {"method": "PUT", "header": [{"key":"Content-Type","value":"application/json"}], "url": {"raw":"http://localhost:4000/tasks/{{taskId}}","protocol":"http","host":["localhost"],"port":"4000","path":["tasks","{{taskId}}"]}, "body": {"mode":"raw","raw":"{\n  \"title\": \"Setup server\",\n  \"description\": \"Initialize API updated\",\n  \"status\": \"in-progress\",\n  \"priority\": \"high\",\n  \"due_date\": \"2026-12-31\"\n}"}}},
+    {"name": "Delete Task", "request": {"method": "DELETE", "url": {"raw":"http://localhost:4000/tasks/{{taskId}}","protocol":"http","host":["localhost"],"port":"4000","path":["tasks","{{taskId}}"]}}}
+  ]
+}
